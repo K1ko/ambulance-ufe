@@ -6,24 +6,98 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface KcervenkaAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath": string;
+    }
+    interface KcervenkaAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface KcervenkaAmbulanceWlList {
     }
 }
+export interface KcervenkaAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLKcervenkaAmbulanceWlEditorElement;
+}
+export interface KcervenkaAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLKcervenkaAmbulanceWlListElement;
+}
 declare global {
+    interface HTMLKcervenkaAmbulanceWlAppElement extends Components.KcervenkaAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLKcervenkaAmbulanceWlAppElement: {
+        prototype: HTMLKcervenkaAmbulanceWlAppElement;
+        new (): HTMLKcervenkaAmbulanceWlAppElement;
+    };
+    interface HTMLKcervenkaAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLKcervenkaAmbulanceWlEditorElement extends Components.KcervenkaAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLKcervenkaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLKcervenkaAmbulanceWlEditorElement, ev: KcervenkaAmbulanceWlEditorCustomEvent<HTMLKcervenkaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLKcervenkaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLKcervenkaAmbulanceWlEditorElement, ev: KcervenkaAmbulanceWlEditorCustomEvent<HTMLKcervenkaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLKcervenkaAmbulanceWlEditorElement: {
+        prototype: HTMLKcervenkaAmbulanceWlEditorElement;
+        new (): HTMLKcervenkaAmbulanceWlEditorElement;
+    };
+    interface HTMLKcervenkaAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLKcervenkaAmbulanceWlListElement extends Components.KcervenkaAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLKcervenkaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLKcervenkaAmbulanceWlListElement, ev: KcervenkaAmbulanceWlListCustomEvent<HTMLKcervenkaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLKcervenkaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLKcervenkaAmbulanceWlListElement, ev: KcervenkaAmbulanceWlListCustomEvent<HTMLKcervenkaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLKcervenkaAmbulanceWlListElement: {
         prototype: HTMLKcervenkaAmbulanceWlListElement;
         new (): HTMLKcervenkaAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "kcervenka-ambulance-wl-app": HTMLKcervenkaAmbulanceWlAppElement;
+        "kcervenka-ambulance-wl-editor": HTMLKcervenkaAmbulanceWlEditorElement;
         "kcervenka-ambulance-wl-list": HTMLKcervenkaAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
-    interface KcervenkaAmbulanceWlList {
+    interface KcervenkaAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath"?: string;
     }
+    interface KcervenkaAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: KcervenkaAmbulanceWlEditorCustomEvent<string>) => void;
+    }
+    interface KcervenkaAmbulanceWlList {
+        "onEntry-clicked"?: (event: KcervenkaAmbulanceWlListCustomEvent<string>) => void;
+    }
+
+    interface KcervenkaAmbulanceWlAppAttributes {
+        "basePath": string;
+    }
+    interface KcervenkaAmbulanceWlEditorAttributes {
+        "entryId": string;
+    }
+
     interface IntrinsicElements {
+        "kcervenka-ambulance-wl-app": Omit<KcervenkaAmbulanceWlApp, keyof KcervenkaAmbulanceWlAppAttributes> & { [K in keyof KcervenkaAmbulanceWlApp & keyof KcervenkaAmbulanceWlAppAttributes]?: KcervenkaAmbulanceWlApp[K] } & { [K in keyof KcervenkaAmbulanceWlApp & keyof KcervenkaAmbulanceWlAppAttributes as `attr:${K}`]?: KcervenkaAmbulanceWlAppAttributes[K] } & { [K in keyof KcervenkaAmbulanceWlApp & keyof KcervenkaAmbulanceWlAppAttributes as `prop:${K}`]?: KcervenkaAmbulanceWlApp[K] };
+        "kcervenka-ambulance-wl-editor": Omit<KcervenkaAmbulanceWlEditor, keyof KcervenkaAmbulanceWlEditorAttributes> & { [K in keyof KcervenkaAmbulanceWlEditor & keyof KcervenkaAmbulanceWlEditorAttributes]?: KcervenkaAmbulanceWlEditor[K] } & { [K in keyof KcervenkaAmbulanceWlEditor & keyof KcervenkaAmbulanceWlEditorAttributes as `attr:${K}`]?: KcervenkaAmbulanceWlEditorAttributes[K] } & { [K in keyof KcervenkaAmbulanceWlEditor & keyof KcervenkaAmbulanceWlEditorAttributes as `prop:${K}`]?: KcervenkaAmbulanceWlEditor[K] };
         "kcervenka-ambulance-wl-list": KcervenkaAmbulanceWlList;
     }
 }
@@ -31,6 +105,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "kcervenka-ambulance-wl-app": LocalJSX.IntrinsicElements["kcervenka-ambulance-wl-app"] & JSXBase.HTMLAttributes<HTMLKcervenkaAmbulanceWlAppElement>;
+            "kcervenka-ambulance-wl-editor": LocalJSX.IntrinsicElements["kcervenka-ambulance-wl-editor"] & JSXBase.HTMLAttributes<HTMLKcervenkaAmbulanceWlEditorElement>;
             "kcervenka-ambulance-wl-list": LocalJSX.IntrinsicElements["kcervenka-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLKcervenkaAmbulanceWlListElement>;
         }
     }
