@@ -9,6 +9,9 @@ export class KcervenkaAmbulanceWlList {
     @Event({ eventName: "entry-clicked"}) entryClicked: EventEmitter<string>;
     waitingPatients: any[];
 
+  async componentWillLoad() {
+   this.waitingPatients = await this.getWaitingPatientsAsync();
+  }
   private async getWaitingPatientsAsync(){
     return await Promise.resolve(
       [{
@@ -32,9 +35,7 @@ export class KcervenkaAmbulanceWlList {
       }]
     );
   }
-  async componentWillLoad() {
-    this.waitingPatients = await this.getWaitingPatientsAsync();
-  }
+
   render() {
     return (
       <Host>

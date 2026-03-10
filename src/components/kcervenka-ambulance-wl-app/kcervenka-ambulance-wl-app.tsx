@@ -53,7 +53,9 @@ export class KcervenkaAmbulanceWlApp {
         ? <kcervenka-ambulance-wl-editor entry-id={entryId}
             oneditor-closed={ () => navigate("./list")} >
           </kcervenka-ambulance-wl-editor>
-        : <kcervenka-ambulance-wl-list></kcervenka-ambulance-wl-list>
+        : <kcervenka-ambulance-wl-list onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
+          
+        </kcervenka-ambulance-wl-list>
         }
 
       </Host>
