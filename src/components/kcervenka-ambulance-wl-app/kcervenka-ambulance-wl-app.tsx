@@ -10,6 +10,8 @@ declare global {
 })
 export class KcervenkaAmbulanceWlApp {
   @State() private relativePath = "";
+  @Prop() apiBase: string;
+  @Prop() ambulanceId: string;
 
   @Prop() basePath: string="";
 
@@ -53,9 +55,9 @@ export class KcervenkaAmbulanceWlApp {
         ? <kcervenka-ambulance-wl-editor entry-id={entryId}
             oneditor-closed={ () => navigate("./list")} >
           </kcervenka-ambulance-wl-editor>
-        : <kcervenka-ambulance-wl-list onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
-          
-        </kcervenka-ambulance-wl-list>
+        : <kcervenka-ambulance-wl-list  ambulance-id={this.ambulanceId} api-base={this.apiBase}
+          onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
+          </kcervenka-ambulance-wl-list>
         }
 
       </Host>

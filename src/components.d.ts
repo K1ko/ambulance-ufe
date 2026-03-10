@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface KcervenkaAmbulanceWlApp {
+        "ambulanceId": string;
+        "apiBase": string;
         /**
           * @default ""
          */
@@ -16,6 +18,8 @@ export namespace Components {
         "entryId": string;
     }
     interface KcervenkaAmbulanceWlList {
+        "ambulanceId": string;
+        "apiBase": string;
     }
 }
 export interface KcervenkaAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
@@ -75,6 +79,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface KcervenkaAmbulanceWlApp {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         /**
           * @default ""
          */
@@ -85,20 +91,28 @@ declare namespace LocalJSX {
         "onEditor-closed"?: (event: KcervenkaAmbulanceWlEditorCustomEvent<string>) => void;
     }
     interface KcervenkaAmbulanceWlList {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "onEntry-clicked"?: (event: KcervenkaAmbulanceWlListCustomEvent<string>) => void;
     }
 
     interface KcervenkaAmbulanceWlAppAttributes {
+        "apiBase": string;
+        "ambulanceId": string;
         "basePath": string;
     }
     interface KcervenkaAmbulanceWlEditorAttributes {
         "entryId": string;
     }
+    interface KcervenkaAmbulanceWlListAttributes {
+        "apiBase": string;
+        "ambulanceId": string;
+    }
 
     interface IntrinsicElements {
         "kcervenka-ambulance-wl-app": Omit<KcervenkaAmbulanceWlApp, keyof KcervenkaAmbulanceWlAppAttributes> & { [K in keyof KcervenkaAmbulanceWlApp & keyof KcervenkaAmbulanceWlAppAttributes]?: KcervenkaAmbulanceWlApp[K] } & { [K in keyof KcervenkaAmbulanceWlApp & keyof KcervenkaAmbulanceWlAppAttributes as `attr:${K}`]?: KcervenkaAmbulanceWlAppAttributes[K] } & { [K in keyof KcervenkaAmbulanceWlApp & keyof KcervenkaAmbulanceWlAppAttributes as `prop:${K}`]?: KcervenkaAmbulanceWlApp[K] };
         "kcervenka-ambulance-wl-editor": Omit<KcervenkaAmbulanceWlEditor, keyof KcervenkaAmbulanceWlEditorAttributes> & { [K in keyof KcervenkaAmbulanceWlEditor & keyof KcervenkaAmbulanceWlEditorAttributes]?: KcervenkaAmbulanceWlEditor[K] } & { [K in keyof KcervenkaAmbulanceWlEditor & keyof KcervenkaAmbulanceWlEditorAttributes as `attr:${K}`]?: KcervenkaAmbulanceWlEditorAttributes[K] } & { [K in keyof KcervenkaAmbulanceWlEditor & keyof KcervenkaAmbulanceWlEditorAttributes as `prop:${K}`]?: KcervenkaAmbulanceWlEditor[K] };
-        "kcervenka-ambulance-wl-list": KcervenkaAmbulanceWlList;
+        "kcervenka-ambulance-wl-list": Omit<KcervenkaAmbulanceWlList, keyof KcervenkaAmbulanceWlListAttributes> & { [K in keyof KcervenkaAmbulanceWlList & keyof KcervenkaAmbulanceWlListAttributes]?: KcervenkaAmbulanceWlList[K] } & { [K in keyof KcervenkaAmbulanceWlList & keyof KcervenkaAmbulanceWlListAttributes as `attr:${K}`]?: KcervenkaAmbulanceWlListAttributes[K] } & { [K in keyof KcervenkaAmbulanceWlList & keyof KcervenkaAmbulanceWlListAttributes as `prop:${K}`]?: KcervenkaAmbulanceWlList[K] };
     }
 }
 export { LocalJSX as JSX };
