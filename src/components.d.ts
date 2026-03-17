@@ -15,6 +15,8 @@ export namespace Components {
         "basePath": string;
     }
     interface KcervenkaAmbulanceWlEditor {
+        "ambulanceId": string;
+        "apiBase": string;
         "entryId": string;
     }
     interface KcervenkaAmbulanceWlList {
@@ -87,6 +89,8 @@ declare namespace LocalJSX {
         "basePath"?: string;
     }
     interface KcervenkaAmbulanceWlEditor {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "entryId"?: string;
         "onEditor-closed"?: (event: KcervenkaAmbulanceWlEditorCustomEvent<string>) => void;
     }
@@ -103,6 +107,8 @@ declare namespace LocalJSX {
     }
     interface KcervenkaAmbulanceWlEditorAttributes {
         "entryId": string;
+        "ambulanceId": string;
+        "apiBase": string;
     }
     interface KcervenkaAmbulanceWlListAttributes {
         "apiBase": string;
